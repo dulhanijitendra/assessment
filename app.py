@@ -249,47 +249,49 @@ def capture_photos(name, candidate_id):
                 cv2.imwrite(photo_filename, img)
     
     # Initialize Streamlit app
-    st.title("AI & Data Hiring- Python Assessment.")
-    st.write("Only the responses submitted in first attempt would be used for evaluation. The responses are manually submitted when you apply changes to the code IDEs below")
-    st.write('The responses submitted after 30 minutes will not be considered for evaluation')
+st.title("AI & Data Hiring- Python Assessment.")
+st.write("Only the responses submitted in first attempt would be used for evaluation. The responses are manually submitted when you apply changes to the code IDEs below")
+st.write('The responses submitted after 30 minutes will not be considered for evaluation')
+st.write('Step 1: Fill in your details such as name and candidate ID. Do remember to submit these details')
+st.write('Step 2: You have to start your camera by clicking on "Select Device". Please not click on done unless you have completed the assessment')
 
     # Input fields for metadata
-    name = st.text_input("Enter Name", key="name_input")
-    candidate_id = st.text_input("Enter Candidate ID", key="candidate_id_input")
+name = st.text_input("Enter Name", key="name_input")
+candidate_id = st.text_input("Enter Candidate ID", key="candidate_id_input")
 
     # Submit button
-    if st.button("Submit"):
-        if name and candidate_id:
-            st.write(f"Capturing photos every minute for {name} with Candidate ID: {candidate_id}")
+if st.button("Submit"):
+    if name and candidate_id:
+        st.write(f"Capturing photos every minute for {name} with Candidate ID: {candidate_id}")
 
             # Start the capture in a separate thread
-            stop_capture.clear()
-            capture_thread = threading.Thread(target=capture_photos, args=(name, candidate_id))
-            capture_thread.start()
+        stop_capture.clear()
+        capture_thread = threading.Thread(target=capture_photos, args=(name, candidate_id))
+        capture_thread.start()
 
-            st.success("Capture started.")
-        else:
-            st.warning("Please fill in all fields.")
+        st.success("Capture started.")
+    else:
+        st.warning("Please fill in all fields.")
 
     # Streamlit WebRTC component for real-time video capture
-    webrtc_streamer(key="video", video_transformer_factory=VideoTransformer)
+webrtc_streamer(key="video", video_transformer_factory=VideoTransformer)
 
-    st.write('Write a Python Code to test if a number is a prime number. The changes that you last apply would be used for assessment')
-    code_1 = st_ace(value="print('Hello, world!')", language='python', theme='monokai', key='code_1')
-    if st.button('Test your last applied code changes', key='Run1'):
-        result1 = execute_code(code_1)
-        st.write("**Output:**")
-        st.code(result1)
+st.write('Write a Python Code to test if a number is a prime number. The changes that you last apply would be used for assessment')
+code_1 = st_ace(value="print('Hello, world!')", language='python', theme='monokai', key='code_1')
+if st.button('Test your last applied code changes', key='Run1'):
+    result1 = execute_code(code_1)
+    st.write("**Output:**")
+    st.code(result1)
 
-    st.write('Write a Python Code to test if a string is a palindrome. The changes that you last apply would be used for assessment')
-    code_2 = st_ace(value="print('Hello, world!')", language='python', theme='monokai', key='code_2')
-    if st.button('Test your last applied code changes', key='Run2'):
-        result2 = execute_code(code_2)
-        st.write("**Output:**")
-        st.code(result2)
+st.write('Write a Python Code to test if a string is a palindrome. The changes that you last apply would be used for assessment')
+code_2 = st_ace(value="print('Hello, world!')", language='python', theme='monokai', key='code_2')
+if st.button('Test your last applied code changes', key='Run2'):
+    result2 = execute_code(code_2)
+    st.write("**Output:**")
+    st.code(result2)
 
-    with open('submitted_code_1.py', 'w') as f:
-        f.write(code_1)
+with open('submitted_code_1.py', 'w') as f:
+    f.write(code_1)
 
-    with open('submitted_code_2.py', 'w') as f:
-        f.write(code_2)
+with open('submitted_code_2.py', 'w') as f:
+    f.write(code_2)

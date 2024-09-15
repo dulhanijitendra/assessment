@@ -1,6 +1,6 @@
-streamlit
-streamlit-ace
-streamlit_autorefresh
+streamlit==1.20.0
+streamlit-ace==0.3.0
+streamlit_autorefresh==0.2.0
 opencv-python
 streamlit-webrtc
 
