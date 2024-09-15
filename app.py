@@ -175,6 +175,8 @@ st.write("The responses are manually submitted when you apply changes to the cod
 st.write("The responses last submitted within 30 minutes will be used for evaluation")
 st.write('The responses submitted after 30 minutes will not be considered for evaluation')
 
+st.write('Follow these steps (a) Turn On Camera (b) Select Device (c) Fill in your responses in Code IDEs (d) Come back and confirm if you have completed')
+
 class VideoTransformer(VideoTransformerBase):
     def __init__(self):
         self.video_writer = av.open(video_file_path, mode='w', format='mp4', options={'crf': '23'})
