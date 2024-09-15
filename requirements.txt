@@ -3,4 +3,6 @@ streamlit-ace
 streamlit_autorefresh
 opencv-python
 streamlit-webrtc
+av
+numpy
 
