@@ -170,7 +170,7 @@ import numpy
 video_file_path = "Candidate Video.mp4"
 
     # Initialize Streamlit app
-st.title("Hiring- Python Assessment.")
+st.title("Hiring- Python Assessment- JD.")
 st.write("The responses are manually submitted when you apply changes to the code IDEs below")
 st.write("The responses last submitted within 30 minutes will be used for evaluation")
 st.write('The responses submitted after 30 minutes will not be considered for evaluation')
