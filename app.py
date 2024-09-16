@@ -283,6 +283,18 @@ st.markdown("""
     </script>
 """, unsafe_allow_html=True)
 
+st.markdown("""
+        <style>
+               .block-container {
+                    padding-top: 2rem;
+                    padding-bottom: 0rem;
+                    padding-left: 5rem;
+                    padding-right: 5rem;
+                }
+        </style>
+        """, unsafe_allow_html=True)
+
+
 st.write('Edit the hello world function below to include your name as Candidate ID. For example if your candidate ID is 4356, the output should return Hello 5356.')
 code_10 = st_ace(value="print('Hello, world!')", language='python', theme='monokai', key='code_10')
 if st.button('Test your last applied code changes', key='Run10'):
